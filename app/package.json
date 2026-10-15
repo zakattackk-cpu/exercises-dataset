@@ -1,0 +1,28 @@
+{
+  "name": "liftlog",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "prepare-data": "node scripts/prepare-data.mjs",
+    "dev": "npm run prepare-data && vite --host",
+    "build": "npm run prepare-data && tsc --noEmit && vite build",
+    "preview": "vite preview --host",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name liftlog --branch main --commit-dirty=true"
+  },
+  "dependencies": {
+    "dexie": "^4.0.10",
+    "dexie-react-hooks": "^1.1.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vite-plugin-pwa": "^0.21.1",
+    "wrangler": "^4.151.0"
+  }
+}
